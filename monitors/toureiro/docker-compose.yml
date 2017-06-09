@@ -1,0 +1,9 @@
+version: '2'
+services:
+  monitor:
+    image: node:6
+    volumes:
+      - ./node_modules:/apps/node_modules
+    ports:
+      - 3001:3001
+    command: /apps/node_modules/.bin/toureiro 3001 --rh ${REDIS_HOST} --pass ${REDIS_PASSWORD}

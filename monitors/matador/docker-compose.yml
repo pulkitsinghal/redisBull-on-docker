@@ -1,0 +1,14 @@
+version: '2'
+services:
+  monitor:
+    image: node:6
+    environment:
+      - REDIS_URL=${REDIS_URL}
+    volumes:
+      - ./monitor.js:/apps/monitor.js
+      - ./node_modules:/apps/node_modules
+    entrypoint:
+      - node
+      - /apps/monitor.js
+    ports:
+      - 3000:3000
